@@ -8,16 +8,16 @@ from telegram import InlineKeyboardMarkup
 from telegram.ext import CommandHandler
 
 from bot import bot, dispatcher, updater, botStartTime, IGNORE_PENDING_REQUESTS, LOGGER, Interval, INCOMPLETE_TASK_NOTIFIER, DB_URI, alive, app, main_loop, IMAGE_URL, AUTHORIZED_CHATS
-from .helper.ext_utils.fs_utils import start_cleanup, clean_all, exit_clean_up
-from .helper.ext_utils.telegraph_helper import telegraph
-from .helper.ext_utils.bot_utils import get_readable_file_size, get_readable_time
-from .helper.ext_utils.db_handler import DbManger
-from .helper.telegram_helper.bot_commands import BotCommands
-from .helper.telegram_helper.message_utils import sendMessage, sendMarkup, editMessage, sendLogFile
-from .helper.telegram_helper.filters import CustomFilters
-from .helper.telegram_helper.button_build import ButtonMaker
+from bot.helper.ext_utils.fs_utils import start_cleanup, clean_all, exit_clean_up
+from bot.helper.ext_utils.telegraph_helper import telegraph
+from bot.helper.ext_utils.bot_utils import get_readable_file_size, get_readable_time
+from bot.helper.ext_utils.db_handler import DbManger
+from bot.helper.telegram_helper.bot_commands import BotCommands
+from bot.helper.telegram_helper.message_utils import sendMessage, sendMarkup, editMessage, sendLogFile
+from bot.helper.telegram_helper.filters import CustomFilters
+from bot.helper.telegram_helper.button_build import ButtonMaker
 
-from .modules import authorize, list, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval, delete, count, leech_settings, search, rss
+from bot.modules import authorize, list, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval, delete, count, leech_settings, search, rss
 
 
 def stats(update, context):
@@ -199,7 +199,7 @@ help_string = f'''<b><i>How to use Bot👇🏻</i></b>'''
 
 def bot_help(update, context):
     button = ButtonMaker()
-    button.buildbutton("Click Me 😉", f"https://telegra.ph/{help}")
+    button.buildbutton("Click Me 😉", f"https://graph.org/{help}")
     reply_markup = InlineKeyboardMarkup(button.build_menu(1))
     sendMarkup(help_string, context.bot, update.message, reply_markup)
 
