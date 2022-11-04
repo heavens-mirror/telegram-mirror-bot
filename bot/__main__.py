@@ -199,7 +199,7 @@ help_string = f'''<b><i>How to use Bot👇🏻</i></b>'''
 
 def bot_help(update, context):
     button = ButtonMaker()
-    button.buildbutton("Click Me 😉", f"https://telegra.ph/{help}")
+    button.buildbutton("Click Me 😉", f"https://graph.org/{help}")
     reply_markup = InlineKeyboardMarkup(button.build_menu(1))
     sendMarkup(help_string, context.bot, update.message, reply_markup)
 
